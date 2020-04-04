@@ -2,12 +2,12 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './footer.css';
 
-export class Footer extends React.Component {
+class Footer extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <footer>
-          <div className="container">
+        <div className="container-fluid">
+          <footer>
             <div className="row">
 
               <div className="col-lg-5 col-md-5 col-sm-4 col-xs-12">
@@ -79,10 +79,11 @@ export class Footer extends React.Component {
               </div>
 
 
-            </div>
-          </div>
-        </footer>
+            </div> </footer>
+        </div>
+
       </React.Fragment>
     )
   }
 }
+export default Footer;

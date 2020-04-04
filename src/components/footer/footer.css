@@ -1,6 +1,17 @@
+/* .container-fluid{
+    padding: 0px 0px ;
+    position: relative;
+    bottom: 0px;
+} */
+
 footer{
      background-color: #33383c;
      padding:70px 0px;
+     position: relative;
+left:0;
+bottom:0;
+right:0;
+margin-block-start: 50px;
 }	       
 
 footer ul li{

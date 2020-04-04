@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export class Navbar extends React.Component {
+class Navbar extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -34,3 +34,4 @@ export class Navbar extends React.Component {
     )
   }
 }
+export default Navbar;

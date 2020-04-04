@@ -10,7 +10,7 @@ import { Card, CardImg, CardBody } from 'reactstrap';
         return (
             <React.Fragment>
 
-                <div className="container-fluid">
+                <div className="cardss">
 
                     <div className="row card-row">
                         <div className="col-md-2">

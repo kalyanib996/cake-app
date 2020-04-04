@@ -1,5 +1,7 @@
 .card-filter{
+    position: relative;
     width: 250px;
     height:600px;
-    float: left;;
+    float: left;
+    margin-top:20px;
 }
