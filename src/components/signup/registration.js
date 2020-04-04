@@ -2,7 +2,7 @@ import React from 'react';
 import './registration.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export class Registration extends React.Component {
+class Registration extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -61,3 +61,4 @@ export class Registration extends React.Component {
     )
   }
 }
+export default Registration;

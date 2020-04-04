@@ -3,7 +3,7 @@ import './login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Registration } from '../signup/registration';
 
-export class Login extends React.Component {
+class Login extends React.Component {
  state={
    registration:false,
     username:"",
@@ -54,3 +54,4 @@ export class Login extends React.Component {
 
   }
 }
+export default Login;
