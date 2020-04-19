@@ -3,35 +3,95 @@ import './registration.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Registration extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      txtUsername: "CayBee",
+      email: '',
+      password: '',
+      cnfpassword: '',
+
       formErrors: {
-          txtUsernameErr:'' 
-            },
+        emailErr: '',
+        passwordErr: '',
+        cnfpasswordErr: '',
+      },
+
       fieldValidity: {
-            txtUsername: false
-            },
-      formValid: false
-    };
-    
-    this.ValidateUsername = (event) => {
-      const name = event.target.value;
-      var formErrors = this.state.formErrors;
-      var fieldValidity = this.state.fieldValidity;
-      this.setState({txtUsername:event.target.value});
-      if (name.length < 5) {
-        formErrors.txtUsernameErr = "Cannot be less than 5";
-        fieldValidity.txtUsername = false;
-      } else {
-        formErrors.txtUsernameErr = "";
-        fieldValidity.txtUsername = true;
-      }
-      this.setState({ formErrors: formErrors });
-      this.setState({ formValid: fieldValidity.txtUsername})
+        email: false,
+        password: false,
+        cnfpassword: false
+      },
+      formValid: false,
+      successMessage: ''
     };
   }
+
+  // click =() => {
+  //   console.log("button clicked")
+  // }
+
+  validateEmail = (e) => {
+    const email = e.target.value;
+    var formErrors = this.state.formErrors;
+    var fieldValidity = this.state.fieldValidity;
+    this.setState({ email: e.target.value });
+    console.log(email.length);
+    if (email.length < 5) {
+      formErrors.emailErr = "Email must be at least 5 chars";
+      fieldValidity.email = false;
+    }
+    else {
+      formErrors.emailErr = "";
+      fieldValidity.email = true;
+    }
+    this.setState({ fieldValidity: fieldValidity })
+    this.setState({ formValid: fieldValidity.email && fieldValidity.password && fieldValidity.cnfpassword })
+  }
+  validatePassword = (e) => {
+    const password = e.target.value;
+    this.setState({ password: password });
+    var formErrors = this.state.formErrors;
+    var fieldValidity = this.state.fieldValidity;
+    if (password.length < 8) {
+      formErrors.emailErr = "Password must be at least 8 chars";
+      fieldValidity.password = false;
+    }
+    else {
+      formErrors.passwordErr = "";
+      fieldValidity.password = true;
+    }
+
+
+    this.setState({ formErrors: formErrors });
+    this.setState({ formValid: fieldValidity.email && fieldValidity.password && fieldValidity.cnfpassword })
+  }
+
+  validateCnfpassword = (e) => {
+    const cnfpassword = e.target.value;
+    this.setState({ cnfpassword: cnfpassword });
+    var formErrors = this.state.formErrors;
+    var fieldValidity = this.state.fieldValidity;
+    if (cnfpassword.length < 8) {
+      formErrors.emailErr = "cnfpassword must be at least 8 chars";
+      fieldValidity.cnfpassword = false;
+    }
+    else {
+      formErrors.cnfpasswordErr = "";
+      fieldValidity.cnfpassword = true;
+    }
+
+
+    this.setState({ formErrors: formErrors });
+    this.setState({ formValid: fieldValidity.email && fieldValidity.password && fieldValidity.cnfpassword })
+  }
+
+  update = (e) => {
+    e.preventDefault();
+    if (this.state.password == this.state.cnfpassword && this.state.formValid){
+      
+    }
+  }
+
 
   render() {
     return (
@@ -47,7 +107,7 @@ class Registration extends React.Component {
               <div className="row">
                 <div className="col-md-6">
                   <label for="firstName"></label>
-                  <input type="text" className="form-control" value={this.state.txtUsername} onChange={this.ValidateUsername}></input>
+                  <input type="text" className="form-control" placeholder="First Name"></input>
                   <div id="errorMsg">{this.state.formErrors.txtUsernameErr}</div>
                 </div>
                 <div className="col-md-6">
@@ -57,13 +117,14 @@ class Registration extends React.Component {
                 <div className="col-md" >
                   <div className="form-group">
                     <label for="email"></label>
-                    <input type="email" className="form-control" placeholder="Email" required></input>
-
+                    <input type="email" className="form-control" value={this.state.email} onChange={this.validateEmail} required placeholder="Email"></input>
+                    <span className="text-danger">{this.state.formErrors.emailErr } </span>
                     <label for="password"></label>
-                    <input type="password" className="form-control" placeholder="Password"></input>
-
+                    <input type="password" className="form-control" value={this.state.password} onChange={this.validatePassword} required placeholder="Password"></input>
+                    <span className="text-danger">{this.state.formErrors.PasswordErr } </span>
                     <label for="password"></label>
-                    <input type="password" className="form-control" placeholder="Confirm Password"></input>
+                    <input type="password" className="form-control" value={this.state.cnfpassword} onChange={this.validateCnfpassword} required placeholder="Confirm Password"></input>
+                    <span className="text-danger">{this.state.formErrors.cnfpasswordErr } </span>
                     <div>
                       <br />
                       <div>
@@ -76,7 +137,7 @@ class Registration extends React.Component {
 
 
                       <label for="password"></label>
-                      <button className="btn btn-primary btn-lg btn-block register-btn form-control">Register</button>
+                      <button className="btn btn-primary btn-lg btn-block register-btn form-control"  onClick={this.update} disabled={!this.state.formValid}>Register</button>
                     </div>
 
                   </div>
