@@ -6,6 +6,7 @@
     align-content: center;
     height: 520px;
     opacity: 1;
+    height: auto;
 }
 
 
@@ -32,4 +33,12 @@ background: grey;
 .btn.btn-primary.btn-lg.btn-block.register-btn:hover{
     background: #15bd93e3;
 
+}
+.password{
+    margin-top: 10px;
+    background-color:lightskyblue;
+    height: 94px;
+    width: 300px;
+    font-size: 12px;
+    text-align: left;
 }
