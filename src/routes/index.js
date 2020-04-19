@@ -15,7 +15,7 @@ const routes=(
     <div> 
 
         <Switch>
-
+     
         {/* used to route wrong urls to a specific page */}
         {/* <Route component={Login} />  */}
         <Route exact path='/' render={() => (<Redirect to='/login'/>) } />
@@ -29,6 +29,7 @@ const routes=(
         <Route path='/filter' component={Filter}/>
         <Route path='/contact' component={Contact}/>
 
+            {/* <Route path={'/:username'} render={({match}) => {return <h1> Hello {match.params.username}!</h1> }}/>     */}
 
 
         </Switch>
