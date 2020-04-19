@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route,Redirect,Switch} from "react-router-dom";
+import {Route,Redirect,Switch,Link} from "react-router-dom";
 import Navbar from '../components/header/header.js';
 import Footer from '../components/footer/footer.js';
 import Login from '../components/login/login.js';
@@ -7,12 +7,15 @@ import Registration from '../components/signup/registration';
 import Homepage from '../components/homepage/homepage';
 import Card1 from '../components/card/card';
 import Filter from '../components/filter/filter';
+import Contact from '../components/contact/contact.js';
 
 
 
 const routes=(
     <div> 
+
         <Switch>
+
         {/* used to route wrong urls to a specific page */}
         {/* <Route component={Login} />  */}
         <Route exact path='/' render={() => (<Redirect to='/login'/>) } />
@@ -24,6 +27,7 @@ const routes=(
         <Route path='/homepage' component={Homepage}/>
         <Route path='/card' component={Card1}/>
         <Route path='/filter' component={Filter}/>
+        <Route path='/contact' component={Contact}/>
 
 
 
