@@ -29,7 +29,7 @@ class Tryout extends React.Component {
           Name:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <button className="btn btn-primary btn-lg btn-block register-btn form-control" type="submit"  onSubmit={this.submit1} >Register</button>
+        <button className="btn btn-primary btn-lg btn-block register-btn form-control" type="submit"  onClick={this.submit1} >Register</button>
 
         
       </form>

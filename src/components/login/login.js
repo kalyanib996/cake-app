@@ -2,6 +2,8 @@ import React from 'react';
 import './login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Registration } from '../signup/registration';
+import Navbar from '../header/header'; 
+
 
 class Login extends React.Component {
 
@@ -53,6 +55,7 @@ class Login extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <Navbar/>
         <div className="container-fluid main1">
           <div className="container login ">
             <div className="row">
@@ -69,16 +72,15 @@ class Login extends React.Component {
 
                 <label for="password"></label>
                 <input type="password" className="form-control" placeholder="Password" value={this.state.password}   onChange={this.getPassword}></input>
-                <label for="password"></label>
                 <span id="errorMsg" className="text-danger">{this.state.formErrors.passwordError}</span>
+
+                <label for="password"></label>
                 <button className="btn btn-primary btn-lg btn-block login-btn form-control" onSubmit={this.login} >Login</button>
                 <label for="password"></label>
             
-                <button className="btn btn-primary btn-lg btn-block signup-btn form-control">signup</button>
-
+                <button className="btn btn-primary btn-lg btn-block signup-btn form-control">Signup</button>
 
               </div>
-
             </form>
           </div>
         </div>

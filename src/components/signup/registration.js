@@ -1,6 +1,7 @@
 import React from 'react';
 import './registration.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from '../header/header'; 
 
 class Registration extends React.Component {
   constructor() {
@@ -138,6 +139,7 @@ class Registration extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <Navbar/>
         <div className="container-fluid main1">
           <div className="container signup ">
             <div className="row">
