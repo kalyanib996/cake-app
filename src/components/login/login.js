@@ -10,7 +10,7 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      txtUsername: "",
+      txtEmail: "",
       password:"",
       formErrors: {},
     
@@ -18,37 +18,35 @@ class Login extends React.Component {
 
   }
   validate = event => {
+    console.log("hello")
     if (Object.keys(this.state.formErrors).length > 0) {
       event.preventDefault();
     }
   };
 
-
-  getUsername = event => {
-    this.setState({ txtUsername: event.target.value });
+  validateEmail = (event) => {
+    const txtEmail = event.target.value;
+    this.setState({ txtEmail: event.target.value });
     var formErrorsCopy = this.state.formErrors;
-    if (event.target.value.length < 5) {
-      formErrorsCopy.txtUsername = "Username must have atleast 5 characters";
-    } else {
-      delete formErrorsCopy["txtUsername"];
-
+    const case_match = txtEmail.match(/^[a-z]+\@[a-z]+\.[a-z]{2,3}$/);
+    if (!case_match) {
+      formErrorsCopy.txtEmail = "Invalid Email";
+    }
+    else {
+      delete formErrorsCopy["txtEmail"];
     }
     this.setState({ formErrors: formErrorsCopy });
-
-  };
+  }
 
   getPassword=(event)=>{
     this.setState({password:event.target.value});
     var formErrorsCopy=this.state.formErrors;
     if(event.target.value==""){
       formErrorsCopy.passwordError="Password cannot be blank";
-
-
     }else{
       delete  formErrorsCopy["passwordError"];
    
     }  this.setState({ formErrors: formErrorsCopy });
-  
   };
 
 
@@ -66,16 +64,15 @@ class Login extends React.Component {
             <form onSubmit={this.validate}>
               <div className="form-group ">
                 <label for="username"></label>
-                <input type="text" className="form-control" placeholder="Username" value={this.state.txtUsername}
-                  onChange={this.getUsername}></input>
-                <span id="errorMsg" className="text-danger">{this.state.formErrors.txtUsername}</span>
+                <input type="text" className="form-control" placeholder="Email" onChange={this.validateEmail}></input>
+                <span id="errorMsg" className="text-danger">{this.state.formErrors.txtEmail}</span>
 
                 <label for="password"></label>
-                <input type="password" className="form-control" placeholder="Password" value={this.state.password}   onChange={this.getPassword}></input>
+                <input type="password" className="form-control" placeholder="Password" onChange={this.getPassword}></input>
                 <span id="errorMsg" className="text-danger">{this.state.formErrors.passwordError}</span>
 
-                <label for="password"></label>
-                <button className="btn btn-primary btn-lg btn-block login-btn form-control" onSubmit={this.login} >Login</button>
+                <label for="button"></label>
+                <button className="btn btn-primary btn-lg btn-block login-btn form-control" >Login</button>
                 <label for="password"></label>
             
                 <button className="btn btn-primary btn-lg btn-block signup-btn form-control">Signup</button>
