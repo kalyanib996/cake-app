@@ -8,6 +8,7 @@ import Homepage from '../components/homepage/homepage';
 import Card1 from '../components/card/card';
 import Filter from '../components/filter/filter';
 import Contact from '../components/contact/contact.js';
+import Tryout from '../components/tryout/tryout.js';
 
 
 
@@ -28,6 +29,7 @@ const routes=(
         <Route path='/card' component={Card1}/>
         <Route path='/filter' component={Filter}/>
         <Route path='/contact' component={Contact}/>
+        <Route path='/tryout' component={Tryout}/>
 
             {/* <Route path={'/:username'} render={({match}) => {return <h1> Hello {match.params.username}!</h1> }}/>     */}
 

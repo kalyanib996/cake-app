@@ -6,12 +6,15 @@ class Registration extends React.Component {
   constructor() {
     super();
     this.state = {
+      firstname: '',
+      lastname: '',
       email: '',
       password: '',
       cnfpassword: '',
-      passwd_acc_msg:'',
-      passwd_match_msg:'',
-   
+      agreement: false,
+      passwd_acc_msg: '',
+      passwd_match_msg: '',
+
 
 
       formErrors: {
@@ -28,18 +31,30 @@ class Registration extends React.Component {
       formValid: false,
       successMessage: ''
     };
+
+    this.submit1 = this.submit1.bind(this)
   }
 
-  // click =() => {
-  //   console.log("button clicked")
-  // }
+  validateFirstname = (e) => {
+    let firstname = e.target.value;
+    this.setState({ firstname: firstname })
+  }
+
+  validateLastname = (e) => {
+    let lastname = e.target.value;
+    this.setState({ lastname: lastname })
+  }
+
+  validateAgreement = (e) => {
+    let agreement = e.target.value;
+    this.setState({ agreement: true })
+  }
 
   validateEmail = (e) => {
     const email = e.target.value;
     var formErrors = this.state.formErrors;
     var fieldValidity = this.state.fieldValidity;
     this.setState({ email: e.target.value });
-    console.log(email.length);
     const case_match = email.match(/^[a-z]+\@[a-z]+\.[a-z]{2,3}$/);
     if (!case_match) {
       formErrors.emailErr = "Invalid email id";
@@ -53,30 +68,31 @@ class Registration extends React.Component {
     this.setState({ formValid: fieldValidity.email && fieldValidity.password && fieldValidity.cnfpassword })
   }
   validatePassword = (e) => {
-    const passwordErrMsg =<div>
+    const passwordErrMsg = <div>
       <span>Invalid Password</span>
       <div className="container password">
         <ul>
           <li>Pasword must have minimum 4 and  maximum 8 characters.</li>
           <li>Password must include at least one upper case letter, one lower case letter, and one numeric digit.</li>
         </ul>
-      </div></div>
-      let passwd_err_msg="";
-      let  passwd_acc_msg="";
+      </div>
+    </div>
+
+    let passwd_err_msg = "";
+    let passwd_acc_msg = "";
     const password = e.target.value;
     this.setState({ password: password });
     var formErrors = this.state.formErrors;
     var fieldValidity = this.state.fieldValidity;
     const case_password = password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$/)
     if (!case_password) {
-      this.setState({passwd_acc_msg:""})
-      formErrors.passwordErr =passwordErrMsg;
+      this.setState({ passwd_acc_msg: "" })
+      formErrors.passwordErr = passwordErrMsg;
       fieldValidity.password = false;
     }
-    else {   
-      console.log("in else")
-    this.setState({passwd_err_msg:""});
-    this.setState({passwd_acc_msg:"Password Accepted"});
+    else {
+      this.setState({ passwd_err_msg: "" });
+      this.setState({ passwd_acc_msg: "Password Accepted" });
       formErrors.passwordErr = "";
       fieldValidity.password = true;
     }
@@ -87,17 +103,22 @@ class Registration extends React.Component {
   }
 
   validateCnfpassword = (e) => {
+    const acc = <div>
+      <i className="fa fa-plus-circle"></i> <span>Passwords match</span>
+    </div>
+    const err =<div><i className="fa fa-minus-circle"></i> <span>Passwords dont match</span></div>
     const cnfpassword = e.target.value;
     this.setState({ cnfpassword: cnfpassword });
     var formErrors = this.state.formErrors;
     var fieldValidity = this.state.fieldValidity;
-    if (cnfpassword!=this.state.password) {
-      formErrors.cnfpasswordErr = "Passwords dont match ";
+    if (cnfpassword !== this.state.password) {
+      formErrors.cnfpasswordErr = err;
+      this.setState({ passwd_match_msg: "" })
       fieldValidity.cnfpassword = false;
     }
     else {
       formErrors.cnfpasswordErr = "";
-      this.setState({passwd_match_msg:"Passwords match"})
+      this.setState({ passwd_match_msg: acc })
       fieldValidity.cnfpassword = true;
     }
 
@@ -106,11 +127,11 @@ class Registration extends React.Component {
     this.setState({ formValid: fieldValidity.email && fieldValidity.password && fieldValidity.cnfpassword })
   }
 
-  update = (e) => {
+ 
+  submit1(e)  {
     e.preventDefault();
-    if (this.state.password == this.state.cnfpassword && this.state.formValid) {
-
-    }
+    console.log("Inside submit method")
+    console.log(this.state.email)
   }
 
 
@@ -124,16 +145,16 @@ class Registration extends React.Component {
                 <h4 className="registertext">Register Yourself!</h4>
               </div>
             </div>
-            <form>
+            <form onSubmit={this.submit1}>
               <div className="row">
                 <div className="col-md-6">
                   <label for="firstName"></label>
-                  <input type="text" className="form-control" placeholder="First Name"></input>
+                  <input type="text" className="form-control" placeholder="First Name" onChange={this.validateFirstname}></input>
                   <div id="errorMsg">{this.state.formErrors.txtUsernameErr}</div>
                 </div>
                 <div className="col-md-6">
                   <label for="LastName"></label>
-                  <input type="text" className="form-control" placeholder="Last Name" />
+                  <input type="text" className="form-control" placeholder="Last Name" onChange={this.validateLastname} />
                 </div>
                 <div className="col-md" >
                   <div className="form-group">
@@ -144,10 +165,8 @@ class Registration extends React.Component {
                     <label for="password"></label>
                     <input type="password" className="form-control" value={this.state.password} onChange={this.validatePassword} required placeholder="Password"></input>
                     <span className="text-danger">{this.state.formErrors.passwordErr} </span>
-                    
-                    <span className="text-success">{this.state.passwd_acc_msg} <i className="fa fa-minus-circle fa-1x"></i> </span>
 
-                    <i class="fa fa-plus-circle"></i>
+                    <span className="text-success">{this.state.passwd_acc_msg} </span>
 
 
                     <label for="password"></label>
@@ -158,17 +177,15 @@ class Registration extends React.Component {
                       <br />
                       <div>
                         <label for="checkbox"></label>
-                        <input type="checkbox"></input>
-                        <span>I agree to <a href="/login">Terms of use</a> and <nbsp />
-                          <a href="google.com">Privacy Policy</a>
+                        <input type="checkbox" onClick={this.validateAgreement}></input>
+                        <span>I agree to <a href="/login">Terms of use</a> and <a href="google.com">Privacy Policy</a>
                         </span>
                       </div>
 
-
                       <label for="password"></label>
-                      <button className="btn btn-primary btn-lg btn-block register-btn form-control" onClick={this.update} disabled={!this.state.formValid}>Register</button>
+                      <button className="btn btn-primary btn-lg btn-block register-btn form-control" disabled={!this.state.formValid}>Register</button>
                     </div>
-
+                    
                   </div>
                 </div>
               </div>
