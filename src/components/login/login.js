@@ -10,19 +10,21 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      txtEmail: "",
+      txtEmail:"",
       password:"",
       formErrors: {},
     
     };
+    this.submit1=this.submit1.bind(this);
+    this.validateEmail=this.validateEmail.bind(this);
 
   }
-  validate = event => {
-    console.log("hello")
-    if (Object.keys(this.state.formErrors).length > 0) {
+  submit1(event) {
+    if (Object.keys(this.state.formErrors).length > 0 || this.state.txtEmail=="" || this.state.password=="") {
       event.preventDefault();
     }
-  };
+  }
+
 
   validateEmail = (event) => {
     const txtEmail = event.target.value;
@@ -31,6 +33,7 @@ class Login extends React.Component {
     const case_match = txtEmail.match(/^[a-z]+\@[a-z]+\.[a-z]{2,3}$/);
     if (!case_match) {
       formErrorsCopy.txtEmail = "Invalid Email";
+      
     }
     else {
       delete formErrorsCopy["txtEmail"];
@@ -47,6 +50,7 @@ class Login extends React.Component {
       delete  formErrorsCopy["passwordError"];
    
     }  this.setState({ formErrors: formErrorsCopy });
+    
   };
 
 
@@ -61,7 +65,7 @@ class Login extends React.Component {
                 <h3 className="logintext">Member Login</h3>
               </div>
             </div>
-            <form onSubmit={this.validate}>
+            <form onSubmit={this.submit1}>
               <div className="form-group ">
                 <label for="username"></label>
                 <input type="text" className="form-control" placeholder="Email" onChange={this.validateEmail}></input>
@@ -71,8 +75,9 @@ class Login extends React.Component {
                 <input type="password" className="form-control" placeholder="Password" onChange={this.getPassword}></input>
                 <span id="errorMsg" className="text-danger">{this.state.formErrors.passwordError}</span>
 
-                <label for="button"></label>
-                <button className="btn btn-primary btn-lg btn-block login-btn form-control" >Login</button>
+                <label for="password"></label>
+                <button className="btn btn-primary btn-lg btn-block signup-btn form-control">Login</button>
+
                 <label for="password"></label>
             
                 <button className="btn btn-primary btn-lg btn-block signup-btn form-control">Signup</button>

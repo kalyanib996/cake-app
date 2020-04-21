@@ -48,7 +48,7 @@ class Tryout extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
-          <input type="text" value={this.state.txtEmail} onChange={this.validateEmail} />
+          <input type="text" value={this.state.txtEmail} onChange={this.validateEmail} required/>
           <span id="errorMsg" className="text-danger">{this.state.formErrors.txtEmail}</span>
         </label>
         <button >Signup</button>
