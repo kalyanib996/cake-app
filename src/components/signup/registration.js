@@ -33,7 +33,7 @@ class Registration extends React.Component {
       successMessage: ''
     };
 
-    this.submit1 = this.submit1.bind(this)
+    
   }
 
   validateFirstname = (e) => {
@@ -129,11 +129,7 @@ class Registration extends React.Component {
   }
 
  
-  submit1(e)  {
-    e.preventDefault();
-    console.log("Inside submit method")
-    console.log(this.state.email)
-  }
+
 
 
   render() {
@@ -147,7 +143,7 @@ class Registration extends React.Component {
                 <h4 className="registertext">Register Yourself!</h4>
               </div>
             </div>
-            <form onSubmit={this.submit1}>
+            <form>
               <div className="row">
                 <div className="col-md-6">
                   <label for="firstName"></label>
