@@ -36,7 +36,6 @@ class Tryout extends React.Component {
   
 
   handleSubmit(event) {
-    
     if (Object.keys(this.state.formErrors).length > 0) {
       event.preventDefault();
       console.log("hello")

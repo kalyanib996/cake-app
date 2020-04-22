@@ -13,18 +13,33 @@ class Login extends React.Component {
       txtEmail:"",
       password:"",
       formErrors: {},
+      txtEmailerr: "",
+      txtPassworderr: "",
     
     };
     this.submit1=this.submit1.bind(this);
     this.validateEmail=this.validateEmail.bind(this);
 
+  
   }
   submit1(event) {
-    if (Object.keys(this.state.formErrors).length > 0 || this.state.txtEmail=="" || this.state.password=="") {
+    if(this.state.txtEmail=="") {
+      this.setState({txtEmailerr:"Please provide Email"})
+      this.setState({txtPassworderr:""})
+      event.preventDefault();
+    }
+    else if(this.state.password=="") {
+      this.setState({txtEmailerr:""})
+      this.setState({txtPassworderr:"Please provide Password"})
+      event.preventDefault();
+    }
+    else if (Object.keys(this.state.formErrors).length > 0 || this.state.txtEmail=="" || this.state.password=="") {
+      this.setState({txtEmailerr:""})
+      this.setState({txtPassworderr:""})
       event.preventDefault();
     }
   }
-
+  
 
   validateEmail = (event) => {
     const txtEmail = event.target.value;
@@ -32,6 +47,7 @@ class Login extends React.Component {
     var formErrorsCopy = this.state.formErrors;
     const case_match = txtEmail.match(/^[a-z]+\@[a-z]+\.[a-z]{2,3}$/);
     if (!case_match) {
+      this.setState({txtEmailerr:""})
       formErrorsCopy.txtEmail = "Invalid Email";
       
     }
@@ -43,6 +59,9 @@ class Login extends React.Component {
 
   getPassword=(event)=>{
     this.setState({password:event.target.value});
+    if(this.state.password!=""){
+      this.setState({txtPassworderr:""})
+    }
     var formErrorsCopy=this.state.formErrors;
     if(event.target.value==""){
       formErrorsCopy.passwordError="Password cannot be blank";
@@ -70,10 +89,12 @@ class Login extends React.Component {
                 <label for="username"></label>
                 <input type="text" className="form-control" placeholder="Email" onChange={this.validateEmail}></input>
                 <span id="errorMsg" className="text-danger">{this.state.formErrors.txtEmail}</span>
+                <span id="errorMsg" className="text-danger">{this.state.txtEmailerr}</span>
 
                 <label for="password"></label>
                 <input type="password" className="form-control" placeholder="Password" onChange={this.getPassword}></input>
                 <span id="errorMsg" className="text-danger">{this.state.formErrors.passwordError}</span>
+                <span id="errorMsg" className="text-danger">{this.state.txtPassworderr}</span>
 
                 <label for="password"></label>
                 <button className="btn btn-primary btn-lg btn-block signup-btn form-control">Login</button>
