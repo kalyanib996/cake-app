@@ -88,19 +88,16 @@ class Login extends React.Component {
               <div className="form-group ">
                 <label for="username"></label>
                 <input type="text" className="form-control" placeholder="Email" onChange={this.validateEmail}></input>
-                <span id="errorMsg" className="text-danger">{this.state.formErrors.txtEmail}</span>
-                <span id="errorMsg" className="text-danger">{this.state.txtEmailerr}</span>
-
+                <span id="errorMsg" className="text-danger">{this.state.formErrors.txtEmail} {this.state.txtEmailerr}</span>
+      
                 <label for="password"></label>
                 <input type="password" className="form-control" placeholder="Password" onChange={this.getPassword}></input>
-                <span id="errorMsg" className="text-danger">{this.state.formErrors.passwordError}</span>
-                <span id="errorMsg" className="text-danger">{this.state.txtPassworderr}</span>
-
-                <label for="password"></label>
+                <div id="errorMsg" className="text-danger">{this.state.formErrors.passwordError} {this.state.txtPassworderr}</div>
+              
+                <label for="button"></label>
                 <button className="btn btn-primary btn-lg btn-block signup-btn form-control">Login</button>
 
-                <label for="password"></label>
-            
+                <label for="button1"></label>
                 <button className="btn btn-primary btn-lg btn-block signup-btn form-control">Signup</button>
 
               </div>
