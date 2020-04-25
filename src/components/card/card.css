@@ -4,49 +4,21 @@
     float:center;   
     /* margin-right:100px; */
     /* flex-flow: inherit; */
-    border-color: maroon
-   
-}
-.cardss{
-    position: relative;
-    min-height: 100vh;
-   
-}
-
-
-.card2{
-    width:300px;
-    height:350px;
-    float:center;   
-    /* flex-flow: inherit; */
     border-color: maroon;
     
-    margin-left: 115px;
-}
-
-.card3{
-    width:300px;
-    height:350px;
-    float:center;   
-    /* flex-flow: inherit; */
-    border-color: maroon;
+    
    
-    margin-left: 230px;
-
-}
-
-.card-row{
-    align-content: center;
-    margin-left: 300px;
-    margin-top: 20px;
 }
 .card-img{
     position: inherit;
     width: 298px;
     padding: 4px 4px 4px 4px
-    
-
 }
 .card-title{
     text-align: center;
+} 
+.homepage>div{
+    flex: 0 25%;
+    margin:5px;
+    
 }

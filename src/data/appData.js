@@ -29,7 +29,26 @@ const appData={
     veg_flag: true,
     price: '545',
     id:3,
-  }],
+  },{
+    name: 'Yellow Delight',
+    image: '',
+    flavour: 'Butterscotch',
+    desciption: 'Creamy Butterscotch Cake',
+    weight: '0.5',
+    veg_flag: true,
+    price: '500',
+    id: 2,
+  },
+  {
+    name: 'Yellow Delight',
+    image: '',
+    flavour: 'Butterscotch',
+    desciption: 'Creamy Butterscotch Cake',
+    weight: '0.5',
+    veg_flag: true,
+    price: '500',
+    id: 2,
+  },],
   userData:[
 
     {

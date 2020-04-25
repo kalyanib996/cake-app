@@ -11,45 +11,54 @@ import getCakes from '../../actions/cake_action';
 
 
 class Homepage extends React.Component {
-  constructor(props){
-  super(props);
-  // this.state={
-  //   userMdl:this.props.userMdl
-  // }
-  
+  state = {
+    redirect: false
   }
 
   componentWillMount() {
     console.log(" Inside componentWillMount")
     console.log(this.props.currentUser.currentUser);
-    console.log(this.props.cake[0].name);
+    console.log(this.props.cake);
 
-    if (this.props.currentUser == false) {
+  }
+
+  render() {
+    const cake = this.props.cake;
+    console.log("cake data in homepage", cake)
+    if (this.props.currentUser.currentUser) {
       const cake_details = this.props.cake.initialCakeState;
-      console.log("inside componentWillMount if");
-    } else {
-      return <Login />;
+      console.log("inside if");
+      return (
+        <React.Fragment>
+          <Navbar />
+          <Filter />
+          <div className="homepage">
+          
+
+              {Object.keys(cake).map((cake_details, index) => <Card1 key={index} cake={cake[cake_details]} />)
+              }
+            
+
+          </div>
+
+          <Footer />
+
+        </React.Fragment>
+      )
+    }
+    else {
+      console.log("inside else");
+      return (
+        <div>
+          <Redirect to='/login' />
+        </div>
+      )
     }
 
   }
-
-
-
-  render() {
-    return (
-      <React.Fragment>
-
-        <div className="homepage">
-          <Navbar />
-          <Filter />
-          <Card1 />
-          <Footer />
-
-        </div>
-      </React.Fragment>
-    )
-  }
 }
+
+
 
 function mapStateToProps({ cake, currentUser }) {
   return {
@@ -58,8 +67,8 @@ function mapStateToProps({ cake, currentUser }) {
   }
 }
 const mapDispatchToProps = {
-  getCakes 
- 
+  getCakes
+
 }
 
 export default connect(mapStateToProps)(Homepage);
