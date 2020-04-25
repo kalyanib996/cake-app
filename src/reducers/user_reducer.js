@@ -4,7 +4,7 @@ import appData from '../data/appData';
 
 
 // const userDetails = userData;
-const userDetails = appData.userDetails;
+const userDetails = appData.userData;
 
 export default function user(state={userDetails},action){
     switch (action.type) {
