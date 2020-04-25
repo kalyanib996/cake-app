@@ -1,4 +1,14 @@
 .homepage{
     position: relative;
     min-height: 100vh;
+    display: flex;
+    flex-wrap:wrap;
+    margin-top: 15px;
+    padding-left: 20px
+  
+}
+.card-row{
+    align-content: center;
+    margin-left: 300px;
+    margin-top: 20px;
 }

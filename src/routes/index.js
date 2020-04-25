@@ -14,9 +14,10 @@ import Tryout from '../components/tryout/tryout.js';
 
 const routes=(
     <div> 
+        
+      
 
         <Switch>
-     
         {/* used to route wrong urls to a specific page */}
         {/* <Route component={Login} />  */}
         <Route exact path='/' render={() => (<Redirect to='/login'/>) } />
