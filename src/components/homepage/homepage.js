@@ -17,7 +17,7 @@ class Homepage extends React.Component {
 
   componentWillMount() {
     console.log(" Inside componentWillMount")
-    console.log(this.props.currentUser.currentUser);
+    console.log(this.props.currentUser);
     console.log(this.props.cake);
 
   }
