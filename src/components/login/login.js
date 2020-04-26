@@ -25,7 +25,6 @@ class Login extends React.Component {
     this.submit1 = this.submit1.bind(this);
     this.validateEmail = this.validateEmail.bind(this);
 
-
   }
 
 
@@ -87,12 +86,9 @@ class Login extends React.Component {
       for (i; i < userPramLength; i++) {
         console.log("FORRRRRRRRRRRR")
         if (this.state.txtEmail == userPram[i].email && this.state.password == userPram[i].password) {
-          // event.preventDefault();
           console.log("Inside for--if-------")
           user_flag = true
           user_name = userPram[i].firstname
-          // this.setState({ flag: true })
-          // console.log("flag in if",this.state.flag)
           break
         }
         else {
@@ -110,10 +106,7 @@ class Login extends React.Component {
       }
 
     }
-
-
   }
-
 
   render() {
     if (this.state.flag == false) {
@@ -165,6 +158,16 @@ class Login extends React.Component {
       //   onCloseButtonClick: () => { console.log("jfgshdg")},
       // }
       // toastr.success('Title','success', toastrOptions)
+      // =================================
+      // const toastrConfirmOptions = {
+      //   onOk: () => (
+      //     <div>
+      //       <Redirect to='/homepage' />
+      //     </div>),
+          
+      //   onCancel: () => console.log('CANCEL: clicked')
+      // };
+      // toastr.confirm('Are you sure about that!', toastrConfirmOptions);
 
       return (
         <div>

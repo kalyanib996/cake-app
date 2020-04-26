@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import Login from '../login/login';
 import { Redirect } from 'react-router-dom';
 import getCakes from '../../actions/cake_action';
+import { toastr } from 'react-redux-toastr';
 
 
 class Homepage extends React.Component {
@@ -19,6 +20,7 @@ class Homepage extends React.Component {
     console.log(" Inside componentWillMount")
     console.log(this.props.currentUser);
     console.log(this.props.cake);
+    
 
   }
 
@@ -51,8 +53,6 @@ class Homepage extends React.Component {
 
   }
 }
-
-
 
 function mapStateToProps({ cake, currentUser }) {
   return {
