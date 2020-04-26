@@ -6,8 +6,8 @@ import Navbar from '../header/header';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import homepage from '../homepage/homepage';
-import {setLoggedInUser} from '../../actions/loggedInUser_action';
-
+import { setLoggedInUser } from '../../actions/loggedInUser_action';
+import { toastr } from 'react-redux-toastr';
 var user_flag = ''
 var user_name = ''
 class Login extends React.Component {
@@ -59,7 +59,7 @@ class Login extends React.Component {
     } this.setState({ formErrors: formErrorsCopy });
 
   };
-  
+
   submit1(event) {
     event.preventDefault();
     if (this.state.txtEmail == "") {
@@ -98,27 +98,28 @@ class Login extends React.Component {
         else {
           console.log(this.state.flag)
           console.log("Inside for--elseeee-------")
-          
+          toastr.error('Login Failed ', 'Incorrect Credentials')
+
         }
-       
-      } if(user_flag){
-        console.log("user_flag" ,user_flag)
-        this.setState({flag:true})
-        console.log("flag" ,this.state.flag)
-        this.props.setLoggedInUser(user_name,user_flag)
+
+      } if (user_flag) {
+        console.log("user_flag", user_flag)
+        this.setState({ flag: true })
+        console.log("flag", this.state.flag)
+        this.props.setLoggedInUser(user_name, user_flag)
       }
-      
+
     }
-    
-    
+
+
   }
-  
-  
+
+
   render() {
     if (this.state.flag == false) {
       console.log("inside if")
       return (
-        
+
         <React.Fragment>
           <Navbar />
           <div className="container-fluid main1">
@@ -156,12 +157,22 @@ class Login extends React.Component {
     else {
       console.log("inside ssssslse")
       console.log(this.state.flag)
+      // const toastrOptions = {
+      //   timeOut: 3000, // Default value is 0
+      //   onShowComplete: () => {console.log('SHOW: animation is done')
+      
+      // },
+      //   onCloseButtonClick: () => { console.log("jfgshdg")},
+      // }
+      // toastr.success('Title','success', toastrOptions)
+
       return (
         <div>
           <Redirect to='/homepage' />
-        </div>
+        </div>)
+    
 
-      )
+
 
     }
   }
@@ -175,9 +186,9 @@ function mapStateToProps({ user }) {
 }
 
 const mapDispatchToProps = {
-  setLoggedInUser : setLoggedInUser
+  setLoggedInUser: setLoggedInUser
 
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
