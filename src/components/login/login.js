@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import homepage from '../homepage/homepage';
 
-
+var user_flag = ''
 class Login extends React.Component {
 
   constructor(props) {
@@ -57,7 +57,7 @@ class Login extends React.Component {
     } this.setState({ formErrors: formErrorsCopy });
 
   };
-
+  
   submit1(event) {
     event.preventDefault();
     if (this.state.txtEmail == "") {
@@ -87,18 +87,26 @@ class Login extends React.Component {
         if (this.state.txtEmail == userPram[i].email && this.state.password == userPram[i].password) {
           // event.preventDefault();
           console.log("Inside for--if-------")
-          this.setState({ flag: true })
-          console.log("flag in if",this.state.flag)
+          user_flag = true
+          // this.setState({ flag: true })
+          // console.log("flag in if",this.state.flag)
           break
         }
         else {
           console.log(this.state.flag)
           console.log("Inside for--elseeee-------")
-          this.setState({ flag: false })
+          
         }
       }
+      console.log(this.state.flag)
+    }
+    if(user_flag){
+      console.log("user_flag" ,user_flag)
+      this.setState({flag:true})
+      console.log("flag" ,this.state.flag)
     }
   }
+  
   
   render() {
     if (this.state.flag == false) {
@@ -141,6 +149,7 @@ class Login extends React.Component {
     }
     else {
       console.log("inside ssssslse")
+      console.log(this.state.flag)
       return (
         <div>
           <Redirect to='/homepage' />
@@ -158,5 +167,6 @@ function mapStateToProps({ user }) {
     user
   }
 }
+
 
 export default connect(mapStateToProps)(Login);

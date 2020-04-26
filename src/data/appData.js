@@ -82,6 +82,13 @@ const appData = {
 
   userData:[
     {
+      firstname: 'aa',
+      lastname: 'aa',
+      email: 'aa@aa.aa',
+      password: 'aaa123',
+      terms_conditions: false
+    },
+    {
       firstname: 'Kartikey',
       lastname: 'Soni',
       email: 'kartikey@gmail.com',
@@ -98,7 +105,7 @@ const appData = {
   ],
   currentUserData: {
 
-    currentUser: true,
+    currentUser: false,
     loggedUsername: '',
 
   }
