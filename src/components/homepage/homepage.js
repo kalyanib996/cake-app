@@ -24,7 +24,6 @@ class Homepage extends React.Component {
 
   render() {
     const cake = this.props.cake;
-    console.log("cake data in homepage", cake)
     if (this.props.currentUser.currentUser) {
       const cake_details = this.props.cake.initialCakeState;
       console.log("inside if");
@@ -33,21 +32,16 @@ class Homepage extends React.Component {
           <Navbar />
           <Filter />
           <div className="homepage">
-          
-
               {Object.keys(cake).map((cake_details, index) => <Card1 key={index} cake={cake[cake_details]} />)
               }
-            
-
           </div>
-
           <Footer />
-
         </React.Fragment>
       )
     }
     else {
       console.log("inside else");
+    console.log(  this.props.currentUser.currentUser);
       return (
         <div>
           <Redirect to='/login' />

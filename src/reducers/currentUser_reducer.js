@@ -15,6 +15,15 @@ const  currentUser=(state=currentLoggedUser,action)=>{
                 loggedUsername: user_data,
                 currentUser:flag
             })
+
+            case 'SET_USER_FLAG_FALSE':
+            console.log("Inside Reducer set user FALSE")
+            
+            return Object.assign({}, state, {
+                currentUser:action.user_flag
+                
+            })
+
         default:
             return {...currentLoggedUser}
                         

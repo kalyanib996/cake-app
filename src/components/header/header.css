@@ -1,3 +1,7 @@
 .navbar{
     color: blue;
 }
+
+.nav-item>h3.loggedUsername{
+    color: red;
+}

@@ -6,7 +6,7 @@ import Navbar from '../header/header';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import homepage from '../homepage/homepage';
-import setLoggedInUser from '../../actions/loggedInUser_action';
+import {setLoggedInUser} from '../../actions/loggedInUser_action';
 
 var user_flag = ''
 var user_name = ''
@@ -100,15 +100,16 @@ class Login extends React.Component {
           console.log("Inside for--elseeee-------")
           
         }
+       
+      } if(user_flag){
+        console.log("user_flag" ,user_flag)
+        this.setState({flag:true})
+        console.log("flag" ,this.state.flag)
+        this.props.setLoggedInUser(user_name,user_flag)
       }
-      console.log(this.state.flag)
+      
     }
-    if(user_flag){
-      console.log("user_flag" ,user_flag)
-      this.setState({flag:true})
-      console.log("flag" ,this.state.flag)
-      this.props.setLoggedInUser(user_name,user_flag)
-    }
+    
     
   }
   

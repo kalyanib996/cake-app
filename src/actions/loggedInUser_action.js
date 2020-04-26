@@ -1,4 +1,5 @@
-const  setLoggedInUser=(user,flag)=>{
+
+export const  setLoggedInUser=(user,flag)=>{
     console.log("Inside action---setLoggedInUser")
     console.log(user,flag)
     
@@ -10,4 +11,6 @@ const  setLoggedInUser=(user,flag)=>{
     }
 };
 
-export default setLoggedInUser;
+
+
+
