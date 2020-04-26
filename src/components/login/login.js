@@ -6,8 +6,10 @@ import Navbar from '../header/header';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import homepage from '../homepage/homepage';
+import setLoggedInUser from '../../actions/loggedInUser_action';
 
 var user_flag = ''
+var user_name = ''
 class Login extends React.Component {
 
   constructor(props) {
@@ -88,6 +90,7 @@ class Login extends React.Component {
           // event.preventDefault();
           console.log("Inside for--if-------")
           user_flag = true
+          user_name = userPram[i].firstname
           // this.setState({ flag: true })
           // console.log("flag in if",this.state.flag)
           break
@@ -104,7 +107,9 @@ class Login extends React.Component {
       console.log("user_flag" ,user_flag)
       this.setState({flag:true})
       console.log("flag" ,this.state.flag)
+      this.props.setLoggedInUser(user_name,user_flag)
     }
+    
   }
   
   
@@ -168,5 +173,10 @@ function mapStateToProps({ user }) {
   }
 }
 
+const mapDispatchToProps = {
+  setLoggedInUser : setLoggedInUser
 
-export default connect(mapStateToProps)(Login);
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Login);
