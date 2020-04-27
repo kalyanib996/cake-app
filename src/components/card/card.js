@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 import './card.css';
 import { Card, CardImg, CardTitle, CardBody } from 'reactstrap';
+import CardDescription from '../cardDescription/cardDescription';
 
 class Card1 extends React.Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class Card1 extends React.Component {
     }
     else{
       return(
-      <Redirect to= '/card_description'/>
+        <Redirect to= '/card_description'/>
       )
     }
   }
