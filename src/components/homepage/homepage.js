@@ -10,7 +10,6 @@ import { Redirect } from 'react-router-dom';
 import getCakes from '../../actions/cake_action';
 
 
-
 class Homepage extends React.Component {
   state = {
     redirect: false
