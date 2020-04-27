@@ -38,7 +38,7 @@ const appData = {
     weight: '1',
     veg_flag: false,
     price: '700',
-    id: 1,
+    id: 4,
   },
   {
     name: 'Yellow Delight',
@@ -48,7 +48,7 @@ const appData = {
     weight: '0.5',
     veg_flag: true,
     price: '500',
-    id: 2,
+    id: 5,
   },
   {
      name: 'Choc-Heaven',
@@ -58,7 +58,7 @@ const appData = {
     weight: '0.5',
     veg_flag: true,
     price: '545',
-    id:3,
+    id:6,
   },{
     name: 'Yellow Delight',
     image: '',
@@ -67,7 +67,7 @@ const appData = {
     weight: '0.5',
     veg_flag: true,
     price: '500',
-    id: 2,
+    id: 7,
   },
   {
     name: 'Yellow Delight',
@@ -77,7 +77,7 @@ const appData = {
     weight: '0.5',
     veg_flag: true,
     price: '500',
-    id: 2,
+    id: 8,
   },],
 
   userData:[
