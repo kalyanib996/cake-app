@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import Login from '../login/login';
 import { Redirect } from 'react-router-dom';
 import getCakes from '../../actions/cake_action';
-import { toastr } from 'react-redux-toastr';
+
 
 
 class Homepage extends React.Component {

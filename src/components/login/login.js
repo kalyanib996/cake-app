@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import homepage from '../homepage/homepage';
 import { setLoggedInUser } from '../../actions/loggedInUser_action';
-import { toastr } from 'react-redux-toastr';
+
 var user_flag = ''
 var user_name = ''
 class Login extends React.Component {
@@ -94,7 +94,7 @@ class Login extends React.Component {
         else {
           console.log(this.state.flag)
           console.log("Inside for--elseeee-------")
-          toastr.error('Login Failed ', 'Incorrect Credentials')
+       
 
         }
 
@@ -150,24 +150,8 @@ class Login extends React.Component {
     else {
       console.log("inside ssssslse")
       console.log(this.state.flag)
-      // const toastrOptions = {
-      //   timeOut: 3000, // Default value is 0
-      //   onShowComplete: () => {console.log('SHOW: animation is done')
-      
-      // },
-      //   onCloseButtonClick: () => { console.log("jfgshdg")},
-      // }
-      // toastr.success('Title','success', toastrOptions)
-      // =================================
-      // const toastrConfirmOptions = {
-      //   onOk: () => (
-      //     <div>
-      //       <Redirect to='/homepage' />
-      //     </div>),
-          
-      //   onCancel: () => console.log('CANCEL: clicked')
-      // };
-      // toastr.confirm('Are you sure about that!', toastrConfirmOptions);
+
+
 
       return (
         <div>
