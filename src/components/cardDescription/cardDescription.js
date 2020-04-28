@@ -1,11 +1,21 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from '../header/header';
-import Footer from '../footer/footer'
+import Footer from '../footer/footer';
+import { connect } from 'react-redux';
+
 
 
 
 class CardDescription extends React.Component {
+
+
+  componentWillMount(){
+    console.log("Card description componentWillMount");
+    if(this.props.selectedCake){
+    console.log(this.props.selectedCake);
+  }
+  }
   render() {
     return (
       <React.Fragment>
@@ -37,6 +47,14 @@ class CardDescription extends React.Component {
     )
   }
 }
+function mapStateToProps({cake,selectedCake}) {
+  return {
+  
+  selectedCake :selectedCake
+  
+    
+  }
+}
 
 
-export default CardDescription;
+export default connect(mapStateToProps)(CardDescription);
