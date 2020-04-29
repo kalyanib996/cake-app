@@ -4,7 +4,8 @@ import appData from '../data/appData';
 // const currentLoggedUser = currentUserData.currentUser;
 const currentLoggedUser = appData.currentUserData;
 const  currentUser=(state=currentLoggedUser,action)=>{
-
+    console.log("IN CURRENTUSER REDUCER")
+    console.log(action.type)
     switch (action.type) {
         case 'SET_USER':
             let user_data = action.data.user;

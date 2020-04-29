@@ -47,9 +47,9 @@ class CardDescription extends React.Component {
     )
   }
 }
-function mapStateToProps({cake,selectedCake}) {
+function mapStateToProps({selectedCake}) {
   return {
-  
+    
   selectedCake :selectedCake
   
     

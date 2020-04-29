@@ -24,6 +24,7 @@ class Homepage extends React.Component {
   }
 
   render() {
+    console.log("in homepage" , this.props.currentUser)
     const cake = this.props.cake;
     if (this.props.currentUser.currentUser) {
       const cake_details = this.props.cake.initialCakeState;

@@ -9,7 +9,7 @@ const rootReducer= combineReducers({
     cake:cake,
     user:user,
     currentUser:currentUser,
-    setCakeId:setCakeId
+    selectedCake:setCakeId
    
     
 });

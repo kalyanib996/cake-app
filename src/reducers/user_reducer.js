@@ -7,6 +7,7 @@ import appData from '../data/appData';
 const userDetails = appData.userData;
 
 export default function user(state={userDetails},action){
+    console.log("IN USER REDUCER")
     switch (action.type) {
        
         default:

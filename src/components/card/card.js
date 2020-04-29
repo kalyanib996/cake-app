@@ -31,8 +31,11 @@ class Card1 extends React.Component {
   
   render() {
     const cake_details = this.props.cake;
+    console.log("cake details--->", cake_details)
     console.log("cake_details.id",cake_details.id);  
     console.log("cake details--->", cake_details)
+    console.log("inside cake description render ",this.props.currentUserData)
+
     
     if(!this.state.cardClicked){
       console.log("this.props.selectedCake",this.props.selectedCake)
@@ -52,24 +55,26 @@ class Card1 extends React.Component {
     else{
       console.log(this.state.cardClicked)
       console.log(this.state.selectedCakeid)
+      console.log("Before set cAKE",this.props.currentUser)
+      // this.props.setCakeId(this.state.selectedCakeid)
+      console.log("After set cAKE",this.props.currentUser)
       return(
         <Redirect to= '/card_description'push/>
       )
     }
   }
 }
-function mapStateToProps({cake,selectedCake}) {
+function mapStateToProps({currentUser,selectedCake}) {
   return {
-  
-  selectedCake :selectedCake
+    currentUser:currentUser,
+   selectedCake :selectedCake
   
     
   }
 }
 
 const mapDispatchToProps = {
-  setCakeId : setCakeId
-
+  setCakeId : setCakeId,
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Card1);
