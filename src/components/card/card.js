@@ -18,6 +18,12 @@ class Card1 extends React.Component {
     }
     this.cardClick=this.cardClick.bind(this);
   }
+
+  componentDidUpdate(){
+    console.log("componentDidUpdate")
+    this.props.setCakeId(this.state.selectedCakeid)
+  }
+
   cardClick=(id)=>{
     console.log(id)
     console.log(":::::::::::::::::")

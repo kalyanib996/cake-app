@@ -13,7 +13,9 @@ class CardDescription extends React.Component {
   componentWillMount(){
     console.log("Card description componentWillMount");
     if(this.props.selectedCake){
-    console.log(this.props.selectedCake);
+    console.log("Asasasasasasasas",this.props.selectedCake);
+    console.log("njnjnjnnjnjnnj",this.props.currentUser);
+
   }
   }
   render() {
@@ -47,10 +49,11 @@ class CardDescription extends React.Component {
     )
   }
 }
-function mapStateToProps({selectedCake}) {
+function mapStateToProps({currentUser,selectedCake}) {
   return {
-    
+    currentUser:currentUser,
   selectedCake :selectedCake
+  
   
     
   }
