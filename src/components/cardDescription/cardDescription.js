@@ -5,25 +5,38 @@ import Footer from '../footer/footer';
 import { connect } from 'react-redux';
 
 
-
+var cake_descp
 
 class CardDescription extends React.Component {
-
-
-  componentWillMount(){
+  componentWillMount() {
+    
     console.log("Card description componentWillMount");
-    if(this.props.selectedCake){
-    console.log("Asasasasasasasas",this.props.selectedCake);
-    console.log("njnjnjnnjnjnnj",this.props.currentUser);
+    if (this.props.selectedCake) {
+      console.log("Asasasasasasasas", this.props.selectedCake);
+      console.log("njnjnjnnjnjnnj", this.props.currentUser);
+      console.log("hihihihihihihih",this.props.cake)
+      console.log(Object.keys(this.props.cake).length ,this.props.cake[2].id)
+      for (let i = 0; i < Object.keys(this.props.cake).length; i++) {
+        console.log("in for loop hihihih",this.props.cake[i])
+        if (this.props.selectedCake.selectedCake == this.props.cake[i].id) {
+          cake_descp = this.props.cake[i]
+          console.log("In IF hihihihihihihih",this.props.cake[i])
+          return cake_descp
+        }
+      }
+      console.log("second time hihihihihi",cake_descp)
+    }
+  }
 
-  }
-  }
   render() {
+    let cakedescription = cake_descp
+    console.log("sssssssssssssss",cakedescription.name)
     return (
       <React.Fragment>
         <Navbar />
+        {console.log("IN RENDER RETURN ",cakedescription.name)}
         <div className="container">
-          <h1 className="my-4">Page Heading</h1>
+          <h1 className="my-4">{cakedescription.name}</h1>
           <div className="row">
             <div className="col-md-8">
               <img className="img-fluid" src={process.env.PUBLIC_URL + '/cake_image.jpg'} alt="" />
@@ -37,7 +50,7 @@ class CardDescription extends React.Component {
               <h3 className="my-3">Cake Details</h3>
               <ul>
                 <li>NAME : COCHO TRUFFLE</li>
-                <li>PRICE : $30</li>
+                <li>PRICE : {cakedescription.price}</li>
                 <li>TYPE : NON-VEG</li>
                 <li>WIIGHT : 1KG</li>
               </ul>
@@ -49,13 +62,14 @@ class CardDescription extends React.Component {
     )
   }
 }
-function mapStateToProps({currentUser,selectedCake}) {
+function mapStateToProps({ cake, currentUser, selectedCake }) {
   return {
-    currentUser:currentUser,
-  selectedCake :selectedCake
-  
-  
-    
+    cake: cake,
+    currentUser: currentUser,
+    selectedCake: selectedCake
+
+
+
   }
 }
 
