@@ -50,7 +50,7 @@ class Navbar extends React.Component {
     }
     if(this.state.logout){
       this.props.setLoggedInUser("",false)
-      redirect=<Redirect to={'/login'} push></Redirect>
+      redirect=<Redirect to={'/homepage'} push></Redirect>
     }
     return (
       <React.Fragment>

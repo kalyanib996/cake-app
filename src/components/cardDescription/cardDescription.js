@@ -13,18 +13,16 @@ class CardDescription extends React.Component {
     console.log("Card description componentWillMount");
     if (this.props.selectedCake) {
       console.log("Asasasasasasasas", this.props.selectedCake);
-      console.log("njnjnjnnjnjnnj", this.props.currentUser);
-      console.log("hihihihihihihih",this.props.cake)
       console.log(Object.keys(this.props.cake).length ,this.props.cake[2].id)
       for (let i = 0; i < Object.keys(this.props.cake).length; i++) {
-        console.log("in for loop hihihih",this.props.cake[i])
+        // console.log("in for loop hihihih",this.props.cake[i])
         if (this.props.selectedCake.selectedCake == this.props.cake[i].id) {
           cake_descp = this.props.cake[i]
-          console.log("In IF hihihihihihihih",this.props.cake[i])
+          // console.log("In IF hihihihihihihih",this.props.cake[i])
           return cake_descp
         }
       }
-      console.log("second time hihihihihi",cake_descp)
+      // console.log("second time hihihihihi",cake_descp)
     }
   }
 
@@ -49,10 +47,10 @@ class CardDescription extends React.Component {
               A rich, sweet tart with a biscuit base and a cream or soft cheese topping.</p>
               <h3 className="my-3">Cake Details</h3>
               <ul>
-                <li>NAME : COCHO TRUFFLE</li>
+                <li>NAME : {cakedescription.name}</li>
                 <li>PRICE : {cakedescription.price}</li>
                 <li>TYPE : NON-VEG</li>
-                <li>WIIGHT : 1KG</li>
+                <li>WIIGHT : {cakedescription.name}</li>
               </ul>
             </div>
           </div>

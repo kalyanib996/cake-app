@@ -17,7 +17,7 @@ export default function cake(state=initialCakeState , action) {
             }
         default:
             return{
-                ...initialCakeState
+                ...state
             }
     }
 

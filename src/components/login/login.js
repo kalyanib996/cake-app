@@ -27,7 +27,11 @@ class Login extends React.Component {
     this.validateEmail = this.validateEmail.bind(this);
 
   }
+  componentWillReceiveProps(nextProps){
 
+    console.log("Hello props",this.props.history)
+    this.props.history.goBack();
+  }
 
   validateEmail = (event) => {
     const txtEmail = event.target.value;
@@ -157,7 +161,7 @@ class Login extends React.Component {
       return (
         <div>
           {console.log(this.props)}
-          <Redirect to='/homepage' />
+          {/* <Redirect to='/homepage' /> */}
         </div>)
     
 

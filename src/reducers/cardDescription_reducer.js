@@ -14,7 +14,7 @@ export default function setCakeId(state = selectedCake, action) {
       })
     default:
       return {
-        ...selectedCake
+        state
       }
   }
 
