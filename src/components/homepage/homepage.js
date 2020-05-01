@@ -26,9 +26,9 @@ class Homepage extends React.Component {
   render() {
     console.log("in homepage" , this.props.currentUser)
     const cake = this.props.cake;
-    if (this.props.currentUser.currentUser) {
-      const cake_details = this.props.cake.initialCakeState;
-      console.log("inside if");
+    // if (this.props.currentUser.currentUser) {
+    //   const cake_details = this.props.cake.initialCakeState;
+    //   console.log("inside if");
       return (
         <React.Fragment>
           <Navbar />
@@ -40,16 +40,16 @@ class Homepage extends React.Component {
           <Footer />
         </React.Fragment>
       )
-    }
-    else {
-      console.log("inside else");
-    console.log(  this.props.currentUser.currentUser);
-      return (
-        <div>
-          <Redirect to='/login' />
-        </div>
-      )
-    }
+    // }
+    // else {
+    //   console.log("inside else");
+    // console.log(  this.props.currentUser.currentUser);
+    //   return (
+    //     <div>
+    //       <Redirect to='/login' />
+    //     </div>
+    //   )
+    // }
 
   }
 }

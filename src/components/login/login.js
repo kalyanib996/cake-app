@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom';
 import homepage from '../homepage/homepage';
 import { setLoggedInUser } from '../../actions/loggedInUser_action';
 
+
 var user_flag = ''
 var user_name = ''
 class Login extends React.Component {
@@ -155,6 +156,7 @@ class Login extends React.Component {
 
       return (
         <div>
+          {console.log(this.props)}
           <Redirect to='/homepage' />
         </div>)
     

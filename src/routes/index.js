@@ -21,7 +21,7 @@ const routes=(
         <Switch>
         {/* used to route wrong urls to a specific page */}
         {/* <Route component={Login} />  */}
-        <Route exact path='/' render={() => (<Redirect to='/login'/>) } />
+        <Route exact path='/' render={() => (<Redirect to='/homepage'/>) } />
         {/* <Route exact path='/' component={Login}/> */}
         <Route  path='/login' component={Login}/>
         <Route path='/signup' component={Registration}/>
