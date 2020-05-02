@@ -15,7 +15,9 @@
  text-align: center; 
  color: brown; 
  padding-top: 50px;
- font-family: 'Varela Round', sans-serif;
+ font-family: 'Acme', sans-serif;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
 }
 
 .main1{
@@ -41,4 +43,11 @@ background: grey;
     width: 300px;
     font-size: 12px;
     text-align: left;
+}
+.container.signup{
+  
+    font-family: 'Acme', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  
 }

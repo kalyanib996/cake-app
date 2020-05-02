@@ -5,8 +5,17 @@
     width: 320px;
     align-content: center;
     height: 400px;
-    font-family: 'Varela Round', sans-serif;
     
+    
+}
+.container.login {
+  
+    font-family: 'Acme', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    
+     
 }
 
 

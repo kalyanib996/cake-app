@@ -2,7 +2,7 @@ import appData from '../data/appData';
 
 const selectedCake = appData.selectedCake;
 
-export default function setCakeId(state = selectedCake, action) {
+export const setCakeId=(state = selectedCake, action)=> {
   console.log("IN CAKE DESCRIPTION REDUCER", action.cakeId)
 
   switch (action.type) {

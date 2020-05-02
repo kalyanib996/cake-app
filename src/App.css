@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Acme|Courgette|Dosis:400,700|Kaushan+Script|Permanent+Marker');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Acme', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+     font-weight: bold;
+     color:red;
+     
+}
+  
+  code {
+    /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace; */
+      font-family: 'Acme', sans-serif;
+
+      display:none
+  }
+  html{
+    overflow-x: hidden;
+    font-family: 'Acme', sans-serif;
+    color:red;
+    
+    }
+    

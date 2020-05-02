@@ -8,7 +8,7 @@ import appData from '../data/appData';
 
 // const initialCakeState = cakeData;
 const initialCakeState = appData.cake;
-export default function cake(state=initialCakeState , action) {
+export const cake=(state=initialCakeState , action)=> {
     console.log("IN CAKE REDUCER")
     switch (action.type) {
         case 'GET_ALL_CAKES':
